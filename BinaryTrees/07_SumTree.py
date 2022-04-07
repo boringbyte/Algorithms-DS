@@ -1,6 +1,13 @@
 # https://www.techiedelight.com/inplace-convert-a-tree-sum-tree/
 from BinaryTree import Tree
-from PreOrderTraversal import recursive_pre_order
+
+
+def recursive_pre_order(root):
+    if root is None:
+        return
+    print(root.data, end=' ')
+    recursive_pre_order(root.left)
+    recursive_pre_order(root.right)
 
 
 def sum_tree(root):
