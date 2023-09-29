@@ -1,15 +1,15 @@
 from BinaryTrees.BinaryTree import Tree
 
 
-def recursive_inorder_traversal(root):
+def recursive_inorder(root):
     if root is None:
         return
-    recursive_inorder_traversal(root.left)
+    recursive_inorder(root.left)
     print(root.data, end=' ')
-    recursive_inorder_traversal(root.right)
+    recursive_inorder(root.right)
 
 
-def iterative_inorder_traversal(root):
+def iterative_inorder(root):
     if root is None:
         return
     stack, current = [], root
@@ -26,6 +26,6 @@ def iterative_inorder_traversal(root):
 
 
 if __name__ == '__main__':
-    recursive_inorder_traversal(root=Tree)
+    recursive_inorder(root=Tree)
     print()
-    iterative_inorder_traversal(root=Tree)
+    iterative_inorder(root=Tree)
