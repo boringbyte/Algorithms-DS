@@ -2,31 +2,31 @@
 from BinaryTree import Node
 
 
-class NodeInfo:
-    def __init__(self, node, level, parent):
+class ParentNodeInfo:
+    def __init__(self, node, parent, level):
         self.node = node
         self.level = level
         self.parent = parent
 
 
-def update_level_and_parent(root, x, y, parent=None, level=1):
-    if root is None:
+def update_level_and_parent(child, x, y, parent=None, level=1):
+    if child is None:
         return
 
-    update_level_and_parent(root.left, x, y, root, level + 1)
-    if root == x.node:
+    update_level_and_parent(child.left, x, y, child, level + 1)
+    if child == x.node:
         x.level, x.parent = level, parent
 
-    if root == y.node:
+    if child == y.node:
         y.level, y.parent = level, parent
-    update_level_and_parent(root.right, x, y, root, level + 1)
+    update_level_and_parent(child.right, x, y, child, level + 1)
 
 
 def check_cousins(root, node1, node2):
     if root is None:
         return False
     level, parent = 1, None
-    x, y = NodeInfo(node1, level, parent), NodeInfo(node2, level, parent)
+    x, y = ParentNodeInfo(node1, parent, level), ParentNodeInfo(node2, parent, level)
     update_level_and_parent(root, x, y)
     return x.level == y.level and x.parent != y.parent
 

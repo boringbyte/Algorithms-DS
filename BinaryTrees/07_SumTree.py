@@ -2,12 +2,12 @@
 from BinaryTree import Tree
 
 
-def recursive_pre_order(root):
+def pre_order(root):
     if root is None:
         return
     print(root.data, end=' ')
-    recursive_pre_order(root.left)
-    recursive_pre_order(root.right)
+    pre_order(root.left)
+    pre_order(root.right)
 
 
 def sum_tree(root):
@@ -19,7 +19,7 @@ def sum_tree(root):
 
 
 if __name__ == '__main__':
-    recursive_pre_order(Tree)
+    pre_order(Tree)
     print()
     sum_tree(Tree)
-    recursive_pre_order(Tree)
+    pre_order(Tree)
