@@ -1,4 +1,4 @@
-from BinaryTrees.BinaryTree import Tree
+from BinaryTree import Tree
 
 
 def recursive_inorder(root):
